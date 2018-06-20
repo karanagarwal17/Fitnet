@@ -1,0 +1,9 @@
+node_modules
+build
+production
+data
+.env
+npm-debug.log
+mongod.conf
+src/.env.js
+.vscode/*
