@@ -12,16 +12,16 @@ import {
 const mapStateToProps = state => ({ ...state.auth })
 
 const mapDispatchToProps = dispatch => ({
-  onChangeUsername: value =>
-    dispatch({ type: UPDATE_FIELD_AUTH, key: 'username', value}),
-  onChangePassword: value =>
-    dispatch({ type: UPDATE_FIELD_AUTH, key: 'password', value }),
+  onChangeName: value =>
+    dispatch({ type: UPDATE_FIELD_AUTH, key: 'name', value}),
   onChangeEmail: value =>
     dispatch({ type: UPDATE_FIELD_AUTH, key: 'email', value }),
-  onLogin: (username, password) =>
-    dispatch({ type: LOGIN, payload: agent.Auth.login(username, password) }),
-  onSignup: (username, password, email) =>
-    dispatch({ type: SIGNUP, payload: agent.Auth.signup(username, password, email) }),
+  onChangePassword: value =>
+    dispatch({ type: UPDATE_FIELD_AUTH, key: 'password', value }),
+  onLogin: (email, password) =>
+    dispatch({ type: LOGIN, payload: agent.Auth.login(email, password) }),
+  onSignup: (name, email, password) =>
+    dispatch({ type: SIGNUP, payload: agent.Auth.signup(name, email, password) }),
   onClear: () =>
     dispatch({ type: CLEAR }),
   onUnload: () =>
@@ -32,21 +32,21 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props)
-    this.username = this.props.username
-    this.password = this.props.password
+    this.name = this.props.name
     this.email = this.props.email
+    this.password = this.props.password
     this.errors = this.props.errors
     this.messages = this.props.messages
-    this.changeUsername = ev => this.props.onChangeUsername(ev.target.value)
-    this.changePassword = ev => this.props.onChangePassword(ev.target.value)
+    this.changeName = ev => this.props.onChangeName(ev.target.value)
     this.changeEmail = ev => this.props.onChangeEmail(ev.target.value)
-    this.login = (username, password) => ev => {
+    this.changePassword = ev => this.props.onChangePassword(ev.target.value)
+    this.login = (email, password) => ev => {
       ev.preventDefault()
-      this.props.onLogin(username, password)
+      this.props.onLogin(email, password)
     }
-    this.signup = (username, password, email) => ev => {
+    this.signup = (name, email, password) => ev => {
       ev.preventDefault()
-      this.props.onSignup(username, password, email)
+      this.props.onSignup(name, email, password)
     }
     this.clear = () => {
       this.props.onClear()
@@ -64,8 +64,8 @@ class Home extends React.Component {
 
 
   componentWillReceiveProps(nextProps) {
+    this.name = nextProps.name
     this.email = nextProps.email
-    this.username = nextProps.username
     this.password = nextProps.password
     this.errors = nextProps.errors
     this.messages = nextProps.messages
@@ -104,7 +104,7 @@ class Home extends React.Component {
                 Log in
               </h2>
               <div className="field">
-                <input className="input" type="text" placeholder="Username" value={this.username} onChange={this.changeUsername}/>
+                <input className="input" type="text" placeholder="Email" value={this.email} onChange={this.changeEmail}/>
                 <span className="underline"></span>
               </div>
               <div className="field">
@@ -114,7 +114,7 @@ class Home extends React.Component {
               <div className="errors">
                 {this.errors}
               </div>
-              <button className="btn" onClick={this.login(this.username, this.password)} disabled={this.props.inProgress}>
+              <button className="btn" onClick={this.login(this.email, this.password)} disabled={this.props.inProgress}>
                 LOG IN
               </button>
             </div>
@@ -123,11 +123,11 @@ class Home extends React.Component {
                 Sign Up
               </h2>
               <div className="field">
-                <input className="input" type="text" placeholder="Email" value={this.email} onChange={this.changeEmail}/>
+                <input className="input" type="text" placeholder="Name" value={this.name} onChange={this.changeName}/>
                 <span className="underline"></span>
               </div>
               <div className="field">
-                <input className="input" type="text" placeholder="Username" value={this.username} onChange={this.changeUsername}/>
+                <input className="input" type="text" placeholder="Email" value={this.email} onChange={this.changeEmail}/>
                 <span className="underline"></span>
               </div>
               <div className="field">
@@ -140,7 +140,7 @@ class Home extends React.Component {
               <div className="messages">
                 {this.messages}
               </div>
-              <button className="btn" onClick={this.signup(this.username, this.password, this.email)} disabled={this.props.inProgress}>
+              <button className="btn" onClick={this.signup(this.name, this.email, this.password)} disabled={this.props.inProgress}>
                 SIGN UP
               </button>
             </div>

@@ -28,10 +28,10 @@ const requests = {
 const Auth = {
   current: () =>
     requests.get('/users'),
-  login: (username, password) =>
-    requests.post('/users/login', { username, password }),
-  signup: (username, password, usertype, email) =>
-    requests.post('/users/register', { username, password, usertype, email }),
+  login: (email, password) =>
+    requests.post('/users/login', { email, password }),
+  signup: (name, email, password) =>
+    requests.post('/users/register', { name, email, password }),
   addNgoDetails: (details) =>
     requests.put('/ngo/', details ),
   activate: (token) =>
