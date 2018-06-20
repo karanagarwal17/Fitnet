@@ -3,6 +3,10 @@ import agent from '../agent'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
+import Dashboard from './Dashboard'
+import Header from './Header'
+import Login from './Login'
+
 import {
   APP_LOAD,
   REDIRECT
@@ -38,11 +42,27 @@ class App extends React.Component {
   }
 
   render(){
-    return (
+    if(this.props.currentUser){      
+      return (
       <div>
-        {this.props.children}
+        <Header />
+        <div className="main-container row">
+          <div className="col span-1-of-4">
+            <Dashboard location={this.props.location} />
+          </div>
+          <div className="col span-3-of-4">
+            {this.props.children}
+          </div>
+        </div>
       </div>
-    )
+      )
+    } else {
+      return (
+        <div>
+          <Login />
+        </div>
+      )
+    }
   }
 }
 
