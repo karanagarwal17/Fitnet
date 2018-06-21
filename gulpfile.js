@@ -34,26 +34,13 @@ function runCommand(command) {
 }
 
 gulp.task('unify-css-static', function () {
-  return gulp.src('public/static/css/modules/*')
+  return gulp.src('public/css/modules/*')
      .pipe(cleanCSS())
      .pipe(concat('full.css'))
-     .pipe(gulp.dest('public/static/css/'));
+     .pipe(gulp.dest('public/css/'));
 });
 
-gulp.task('sass', function() {
-  return gulp.src('./public/dynamic/css/bulma.sass')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./public/dynamic/css/modules'));
-});
-
-gulp.task('unify-css-dynamic', ['sass'], function () {
-  return gulp.src('public/dynamic/css/modules/*')
-     .pipe(cleanCSS())
-     .pipe(concat('full.css'))
-     .pipe(gulp.dest('public/dynamic/css'));
-});
-
-gulp.task('compile-css',['unify-css-dynamic','unify-css-static']);
+gulp.task('compile-css',['unify-css-static']);
 
 gulp.task('watch', function(){
   gulp.watch(serverSources,['start']);
