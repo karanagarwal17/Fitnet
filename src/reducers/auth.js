@@ -26,7 +26,7 @@ export default (state = {}, action) => {
         messages: "",
         email: "",
         inProgress: false,
-        errors: action.error ? action.payload.response.body.err.message : null,
+        errors: action.error ? action.payload.response.body.error : null,
       }
     case SIGNUP:
       return {
@@ -35,7 +35,7 @@ export default (state = {}, action) => {
         password: "",
         email: "",
         inProgress: false,
-        errors: action.error ? action.payload.response.body.err.message : null,
+        errors: action.error ? action.payload.response.body.error : null,
         messages: action.error ? null : "Your account has been created, visit your email for the verification link"
       }
     case ASYNC_START:
