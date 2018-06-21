@@ -1,13 +1,10 @@
 import {
   APP_LOAD,
   LOGIN,
-  SIGNUP,
   LOGOUT,
-  PROFILE_ACTIVATED,
+  NOT_LOGGED_IN,
   REDIRECT,
-  NGO_FORM_UPDATE,
-  VOLUNTEER_FORM_UPDATE,
-  NOT_LOGGED_IN
+  SIGNUP
 } from '../constants/actionTypes'
 
 export default(state = {}, action) => {
@@ -21,21 +18,11 @@ export default(state = {}, action) => {
       }
     case LOGIN:
       if(!action.error){
-        if(action.payload.user.admin){
-          return {
-            ...state,
-            redirectTo: 'admin',
-            token: action.payload.token,
-            currentUser: action.payload.user
-          }
-        }
-        else {
-          return {
-            ...state,
-            redirectTo: 'search',
-            token: action.payload.token,
-            currentUser: action.payload.user
-          }
+        return {
+          ...state,
+          redirectTo: '/edit/profile',
+          token: action.payload.token,
+          currentUser: action.payload.user
         }
       } else {
         return state
@@ -58,26 +45,7 @@ export default(state = {}, action) => {
         ...state,
         redirectTo: null
       }
-    case VOLUNTEER_FORM_UPDATE:
-      return {
-        ...state,
-        redirectTo: action.error ? null : 'profile'
-      }
-    case NGO_FORM_UPDATE:
-      if(action.payload.step === 'complete') {
-        return {
-          ...state,
-          redirectTo: 'search'
-        }
-      } else {
-        return state
-      }
     case NOT_LOGGED_IN:
-      return {
-        ...state,
-        redirectTo: '/'
-      }
-    case PROFILE_ACTIVATED:
       return {
         ...state,
         redirectTo: '/'
