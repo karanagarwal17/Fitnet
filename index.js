@@ -43,16 +43,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-//app.use(favicon(path.join(__dirname, 'production', 'static/img/favicon.png')));
-app.use('/static', express.static(path.join(__dirname, 'production', 'static'), {
-	maxAge: 2628000000
-}));
 app.use(express.static(path.join(__dirname, 'production'), {
 	maxAge: 0
 }));
 app.get('*', function(req, res, next){
 	if(req.url.includes('.')){
-		logger.error({err: 'Invalid request for file' + req.url, fileLocation:'./index.js', errLocation: 'app.get * includes(".")'});
+		console.log({err: 'Invalid request for file' + req.url, fileLocation:'./index.js', errLocation: 'app.get * includes(".")'});
 		return res.status(404).send('Not Found');
 	} else {
 		next();
