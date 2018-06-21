@@ -42,7 +42,7 @@ class App extends React.Component {
   }
 
   render(){
-    if(this.props.currentUser){      
+    if(this.props.currentUser){
       return (
       <div>
         <Header />
