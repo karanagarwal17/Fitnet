@@ -25,11 +25,6 @@ class Dashboard extends React.Component {
         </div>
         <div className="tabs">
           <ul>
-            <Link to='/'>
-              <li className={(this.props.location.pathname === '/' ? 'active' : '')}>
-                Feed
-              </li>
-            </Link>
             <Link to='/create/match'>
               <li className={(this.props.location.pathname === '/create/match' ? 'active' : '')}>
                 Create Match
