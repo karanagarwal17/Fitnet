@@ -2,7 +2,6 @@ import { combineReducers } from 'redux'
 
 import auth from './auth'
 import common from './common'
-import edit from './edit'
 import event from './event'
 import profile from './profile'
 import donations from './donations'
@@ -14,6 +13,5 @@ export default combineReducers({
   event,
   profile,
   donations,
-  edit,
   search
 })
