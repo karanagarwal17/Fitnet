@@ -10,7 +10,7 @@ const verify = require('../controllers/verify');
 
 const router = express.Router();
 
-router.route('/')
+router.route('/current')
 	.get( verify.verifyUser, function(req, res, next) {
 		User.findOne({"_id": req.userId})
 		.select('imageUrl name username')
@@ -27,6 +27,36 @@ router.route('/')
 		});
 	});
 
+router.route('/:username')
+	.get(function(req, res, next) {
+		User.findOne({'username': req.params.username})
+		.exec(function(err, user) {
+			if (err) {
+				console.log({err: err, fileLocation: './routes/user.js', errLocation: 'get on /:username 1'});
+				return res.status(401).json({error: err});
+			}
+			if(!user){
+				console.log({err: 'No user found', fileLocation:'./routes/user.js', errLocation: 'get on /:username 2'});
+				return res.status(401).json({error: 'No user found'});
+			}
+			res.status(200).json({user: user});
+		});
+	})
+	.put(verify.verifyOwnProfile, function(req, res, next) {
+		User.findOneAndUpdate({"username": req.params.username}, { $set: req.body }, { new: true })
+		.exec(function(err, user) {
+			if (err) {
+				console.log({err: err, fileLocation: './routes/user.js', errLocation: 'put on /:username 1'});
+				return res.status(401).json({error: err});
+			}
+			if(!user){
+				console.log({err: 'No user found', fileLocation:'./routes/user.js', errLocation: 'put on /:username 2'});
+				return res.status(401).json({error: 'No user found'});
+			}
+			res.status(200).json({user: user});
+		});
+	});
+	
 router.post('/register', function(req, res, next){
 	User.register(new User({ email : req.body.email }),
 	req.body.password, function(err, user) {
