@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
-import agent from '../../agent'
+import agent from '../agent'
 
 import {
   PROFILE_LOAD,
   PROFILE_UNLOAD
-} from '../../constants/actionTypes'
+} from '../constants/actionTypes'
 
 const mapStateToProps = state => ({
   ...state.profile,
