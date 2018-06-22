@@ -741,11 +741,6 @@ input[type=checkbox], input[type=radio] {
   border-left: 3px solid coral;
 }
 
-.hero {
-  margin-top: 110px;
-  padding: 10px 10px 0px 0px;
-}
-
 .hero .imageContainer {
   margin: 0 auto;
   border-radius: 50%;
@@ -906,10 +901,6 @@ input[type=checkbox], input[type=radio] {
   text-transform: uppercase;
   text-shadow: 60%;
   color: rgb(128,128,128);
-}
-
-.volunteer-form {
-  margin-top: 100px;
 }
 
 .volunteerCard {
