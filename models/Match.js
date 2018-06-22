@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var eventSchema = new Schema({
+var matchSchema = new Schema({
     sport: { type: String },
     venue: { type: Object },
     numberOfPeople: { type: Number },
@@ -11,6 +11,6 @@ var eventSchema = new Schema({
   timestamps: true
 });
 
-var Event = mongoose.model('Event', eventSchema);
+var Match = mongoose.model('Match', matchSchema);
 
-module.exports = Event;
+module.exports = Match;
