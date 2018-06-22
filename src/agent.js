@@ -29,62 +29,36 @@ const requests = {
 
 const Auth = {
   current: () =>
-    requests.get('/users'),
+    requests.get('/users/current'),
   login: (email, password) =>
     requests.post('/users/login', { email, password }),
   signup: (name, email, password) =>
-    requests.post('/users/register', { name, email, password }),
-  addNgoDetails: (details) =>
-    requests.put('/ngo/', details ),
-  activate: (token) =>
-    requests.get(`/users/activation/${token}`)
+    requests.post('/users/register', { name, email, password })
 }
 
-const Volunteer = {
-  get: (id) =>
-    requests.get(`/volunteer/${id}`),
-  post: (body) =>
-    requests.post('/volunteer', body),
-  apply: (id) =>
-    requests.post(`/volunteer/apply/${id}`),
-  events: (id) =>
-    requests.get('/volunteer/events')
-}
-
-const Ngo = {
-  get: (id) =>
-    requests.get(`/ngo/${id}`),
-  post: (body) =>
-    requests.post('/ngo', body),
-  donation: (id, body) =>
-    requests.post(`/ngo/donation/${id}`,body),
-  events: (id) =>
-    requests.get(`/ngo/events/${id}`),
-  donations: () =>
-    requests.get('/ngo/donation')
-}
-
-const Event = {
-  post: (body) =>
-    requests.post('/event', body)
-}
-
-const Search = {
-  post: (data) =>
-    requests.post('/search', data)
+const Match = {
+  get: () =>
+    requests.get('/match'),
+  post: (details) =>
+    requests.post('/match', details)
 }
 
 const User = {
-  get: (id) =>
-    requests.get(`/users/${id}`)
+  get: (username) =>
+    requests.get(`/users/${username}`),
+  put: (username, body) =>
+    requests.put(`/users/${username}`, body)
+}
+
+const Venue = {
+  get: () =>
+    requests.get('/venue')
 }
 
 export default {
   Auth,
-  Event,
-  Ngo,
-  Search,
+  Match,
   User,
-  Volunteer,
+  Venue,
   setToken: _token => { token = _token }
 }
