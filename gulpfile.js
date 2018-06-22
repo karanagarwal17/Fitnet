@@ -18,9 +18,7 @@ let serverSources = [
 ];
 
 let cssSources = [
-  'public/dynamic/css/modules/*.css',
-  'public/static/css/modules/*.css',
-  'public/dynamic/css/bulma.sass'
+  'public/css/modules/*.css'
 ];
 
 function runCommand(command) {
