@@ -9,7 +9,7 @@ router.route('/')
                 console.log(err);
                 return res.status(501).json({ error: err });
             }
-            res.status(200).json({ events: events });
+            res.status(200).json({ matches: matches });
         });
     })
     .post(function(req, res, next){
