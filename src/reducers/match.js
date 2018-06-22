@@ -1,13 +1,13 @@
 import {
-  DONATIONS_LOAD
+  MATCH_SEARCH
 } from '../constants/actionTypes'
 
 export default (state = {}, action) => {
   switch(action.type) {
-    case DONATIONS_LOAD:
+    case MATCH_SEARCH:
       return {
         ...state,
-        donations: action.payload.donations
+        matches: action.payload.matches
       }
     default:
       return state

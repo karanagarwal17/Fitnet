@@ -1,19 +1,13 @@
 import {
-  SEARCH,
-  SEARCH_UNLOAD
+  PLAYER_SEARCH
 } from '../constants/actionTypes'
 
 export default(state = {}, action) => {
   switch(action.type){
-    case SEARCH:
+    case PLAYER_SEARCH:
       return{
         ...state,
-        searchResults: action.payload
-      }
-    case SEARCH_UNLOAD:
-      return{
-        ...state,
-        searchResults: null
+        players: action.payload.players
       }
     default:
       return state
