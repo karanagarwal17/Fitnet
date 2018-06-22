@@ -9,7 +9,6 @@ var userSchema = new Schema({
   isVerified: { type: Boolean, default: false },
   email: { type: String },
   location: { type: String },
-  age: { type: String },
   birthDate: { type: String },
   equipment: { type: String },
   gender: { type: String },
