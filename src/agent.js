@@ -43,6 +43,11 @@ const Match = {
     requests.post('/match', details)
 }
 
+const Player = {
+  get: () =>
+    requests.get('/users')
+}
+
 const User = {
   get: (username) =>
     requests.get(`/users/${username}`),
@@ -58,6 +63,7 @@ const Venue = {
 export default {
   Auth,
   Match,
+  Player,
   User,
   Venue,
   setToken: _token => { token = _token }
