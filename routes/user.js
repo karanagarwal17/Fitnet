@@ -10,6 +10,17 @@ const verify = require('../controllers/verify');
 
 const router = express.Router();
 
+router.route('/')
+	.get(function(req, res, next){
+		User.find({}, function(err, players){
+			if(err){
+				console.log(err);
+				return res.status(501).json({ error: err });
+			}
+			res.status(200).json({ players: players });
+		});
+	});
+
 router.route('/current')
 	.get( verify.verifyUser, function(req, res, next) {
 		User.findOne({"_id": req.userId})
