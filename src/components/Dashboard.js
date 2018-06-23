@@ -27,35 +27,42 @@ class Dashboard extends React.Component {
           <ul>
             <Link to='/create/match'>
               <li className={(this.props.location.pathname === '/create/match' ? 'active' : '')}>
+                <i className="fa fa-calendar"></i>&nbsp;&nbsp;
                 Create Match
               </li>
             </Link>
             <Link to='/find/match'>
               <li className={(this.props.location.pathname === '/find/match' ? 'active' : '')}>
+                <i className="fa fa-calendar-alt"></i>&nbsp;&nbsp;
                 Find Match
               </li>
             </Link>
             <Link to='/find/players'>
               <li className={(this.props.location.pathname === '/find/players' ? 'active' : '')}>
+                <i className="fa fa-users"></i>&nbsp;&nbsp;
                 Find Players
               </li>
             </Link>
             <Link to='/find/venue'>
               <li className={(this.props.location.pathname === '/find/venue' ? 'active' : '')}>
+                <i className="fa fa-map-marker-alt"></i>&nbsp;&nbsp;
                 Find Venues
               </li>
             </Link>
             <Link to={'/profile'}>
               <li className={(this.props.location.pathname === '/profile' ? 'active' : '')}>
+                <i className="fa fa-user"></i>&nbsp;&nbsp;
                 Profile
               </li>
             </Link>
             <Link to='/edit/profile'>
               <li className={(this.props.location.pathname === '/edit/profile' ? 'active' : '')}>
+                <i className="fa fa-edit"></i>&nbsp;&nbsp;
                 Edit Profile
               </li>
             </Link>
             <li onClick={this.props.onLogout}>
+              <i className="fa fa-sign-out-alt"></i>&nbsp;&nbsp;
               Logout
             </li>
           </ul>
