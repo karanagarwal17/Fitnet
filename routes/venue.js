@@ -12,7 +12,7 @@ router.route('/')
             res.status(200).json({ venues: venues });
         });
     })
-    .post(function(res, res, next){
+    .post(function(req, res, next){
         Venue.create(req.body, function(err, venue){
             if(err){
                 console.log(err);
