@@ -22,7 +22,6 @@ class FindPlayers extends React.Component {
     }
 
     render(){
-        console.log(this.props.players)
         if(this.props.players){
             return(
                 <div>

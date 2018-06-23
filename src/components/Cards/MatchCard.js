@@ -18,7 +18,6 @@ const mapDispatchToProps = dispatch => ({
 
 class MatchCard extends React.Component {
   render() {
-    console.log(this.props.data)
     return (
       <div className="row eventCard">
         <div className="col span-2-of-7 ImageContainer">

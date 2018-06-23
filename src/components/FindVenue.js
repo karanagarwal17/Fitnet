@@ -22,7 +22,6 @@ class FindVenue extends React.Component {
     }
     
     render(){
-        console.log(this.props.venues)
         if(this.props.venues){
             return(
                 <div>
