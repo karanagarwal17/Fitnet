@@ -18,6 +18,8 @@ var userSchema = new Schema({
   timestamps: true
 });
 
+userSchema.index({'name': 'text', 'bio': 'text', 'email': 'text', 'location': 'text', 'teams': 'text', 'equipment': 'text'}, {weights: {name: 4, bio: 4, email: 4, location: 4, teams: 4, equipment: 4}});
+
 userSchema.plugin(passportLocalMongoose, {
     usernameField: "email"
 });

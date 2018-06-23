@@ -36,16 +36,20 @@ const Auth = {
     requests.post('/users/register', { name, email, password })
 }
 
-const Match = {
-  get: () =>
-    requests.get('/match'),
+const Event = {
+  apply: (id) =>
+    requests.post(`/event/apply/${id}`),
+  search: (data) =>
+    requests.post('/event/search', data),
   post: (details) =>
-    requests.post('/match', details)
+    requests.post('/event', details)
 }
 
 const Player = {
   get: () =>
-    requests.get('/users')
+    requests.get('/users'),
+  search: (data) =>
+    requests.post('/users/search', data)
 }
 
 const User = {
@@ -57,12 +61,14 @@ const User = {
 
 const Venue = {
   get: () =>
-    requests.get('/venue')
+    requests.get('/venue'),
+  search: (data) =>
+    requests.post('/venue/search', data)
 }
 
 export default {
   Auth,
-  Match,
+  Event,
   Player,
   User,
   Venue,

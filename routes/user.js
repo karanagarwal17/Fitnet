@@ -38,6 +38,20 @@ router.route('/current')
 		});
 	});
 
+router.route('/search')
+    .post(function(req, res, next){
+        User.find({ $text: { $search : req.body.query }},{ score: {$meta: 'textScore'}})
+        .limit(20)
+        .sort({score: {$meta: 'textScore'}})
+        .exec(function(err, players){
+            if(err){
+                console.log(err);
+                return res.status(501).json({ error: err });
+            }
+            res.status(200).json({ players: players });
+        });
+    });
+
 router.route('/:username')
 	.get(function(req, res, next) {
 		User.findOne({'username': req.params.username})

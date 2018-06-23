@@ -1,5 +1,6 @@
 import {
-  VENUE_SEARCH
+  VENUE_SEARCH,
+  VENUE_UNLOAD
 } from '../constants/actionTypes'
 
 export default (state = {}, action) => {
@@ -8,6 +9,11 @@ export default (state = {}, action) => {
       return {
         ...state,
         venues: action.payload.venues
+      }
+    case VENUE_UNLOAD:
+      return {
+        ...state,
+        venues: null
       }
     default:
       return state

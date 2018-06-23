@@ -13,10 +13,19 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onApply: (id) =>
-    dispatch({ type: APPLY_EVENT, payload: agent.Volunteer.apply(id) })
+    dispatch({ type: APPLY_EVENT, payload: agent.Event.apply(id) })
 })
 
-class MatchCard extends React.Component {
+class EventCard extends React.Component {
+  constructor(){
+    super()
+
+    this.apply = ev => {
+      ev.preventDefault()
+      this.props.onApply(this.props.data._id)
+    }
+  }
+
   render() {
     return (
       <div className="row eventCard">
@@ -29,15 +38,27 @@ class MatchCard extends React.Component {
               <div className="col span-1-of-2 EventTitle">{this.props.data.sport}</div>
               <div className="col span-1-of-2 EventType">{this.props.data.venue}</div>
             </li><br/>
-            <li className="email">{this.props.data.players}</li><br/>
+            <li>
+            Players: {
+              this.props.data.players.map((player, key) => {
+                return(
+                  player.name + ' '
+                )
+              })
+            }
+            </li>
+            <br/>
             <li>{this.props.data.numberOfPeople}</li>
+            <li>{this.props.data.privacy}</li>
+            <li>{this.props.data.type}</li>
           </ul>
         </div>
         <div className="col span-1-of-7 ButtonContainer">
+          <button className="button" onClick={this.apply}>Join</button>
         </div>
       </div>
     )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MatchCard)
+export default connect(mapStateToProps, mapDispatchToProps)(EventCard)

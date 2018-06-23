@@ -9,6 +9,8 @@ var venueSchema = new Schema({
   timestamps: true
 });
 
+venueSchema.index({'name': 'text', 'address': 'text', 'sports': 'text'}, {weights: {name: 4, address: 4, sports: 4}});
+
 var Venue = mongoose.model('Venue', venueSchema);
 
 module.exports = Venue;

@@ -22,4 +22,18 @@ router.route('/')
         });
     });
 
+router.route('/search')
+    .post(function(req, res, next){
+        Venue.find({ $text: { $search : req.body.query }},{ score: {$meta: 'textScore'}})
+        .limit(20)
+        .sort({score: {$meta: 'textScore'}})
+        .exec(function(err, venues){
+            if(err){
+                console.log(err);
+                return res.status(501).json({ error: err });
+            }
+            res.status(200).json({ venues: venues });
+        });
+    });
+
 module.exports = router;

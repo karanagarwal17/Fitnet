@@ -1,13 +1,19 @@
 import {
-  MATCH_SEARCH
+  EVENT_SEARCH,
+  EVENT_UNLOAD
 } from '../constants/actionTypes'
 
 export default (state = {}, action) => {
   switch(action.type) {
-    case MATCH_SEARCH:
+    case EVENT_SEARCH:
       return {
         ...state,
-        matches: action.payload.matches
+        events: action.payload.events
+      }
+    case EVENT_UNLOAD: 
+      return {
+        ...state,
+        events: null
       }
     default:
       return state

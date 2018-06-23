@@ -744,10 +744,12 @@ input[type=checkbox], input[type=radio] {
 
 .hero .imageContainer {
   margin: 0 auto;
-  border-radius: 50%;
   width: 200px;
   height: 200px;
-  overflow: hidden;
+}
+
+.hero .imageContainer i {
+  font-size: 600%;
 }
 
 .hero .profileImage {
@@ -1254,7 +1256,6 @@ input[type=checkbox], input[type=radio] {
 /* Search */
 
 .searchContainer{
-  margin-top: 110px;
   height: 54px;
 }
 

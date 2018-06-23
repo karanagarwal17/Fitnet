@@ -4,9 +4,9 @@ import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 import App from './components/App'
-import CreateMatch from './components/CreateMatch'
+import CreateEvent from './components/CreateEvent'
 import EditProfile from './components/EditProfile'
-import FindMatch from './components/FindMatch'
+import FindEvent from './components/FindEvent'
 import FindPlayers from './components/FindPlayers'
 import FindVenue from './components/FindVenue'
 import Profile from './components/Profile'
@@ -16,8 +16,8 @@ ReactDOM.render((
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <Route path="create/match" component={CreateMatch} />
-        <Route path="find/match" component={FindMatch} />
+        <Route path="create/event" component={CreateEvent} />
+        <Route path="find/event" component={FindEvent} />
         <Route path="find/players" component={FindPlayers} />
         <Route path="find/venue" component={FindVenue} />
         <Route path="edit/profile" component={EditProfile} />

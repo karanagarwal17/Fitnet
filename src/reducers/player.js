@@ -1,5 +1,6 @@
 import {
-  PLAYER_SEARCH
+  PLAYER_SEARCH,
+  PLAYER_UNLOAD
 } from '../constants/actionTypes'
 
 export default(state = {}, action) => {
@@ -8,6 +9,11 @@ export default(state = {}, action) => {
       return{
         ...state,
         players: action.payload.players
+      }
+    case PLAYER_UNLOAD:
+      return{
+        ...state,
+        players: null
       }
     default:
       return state

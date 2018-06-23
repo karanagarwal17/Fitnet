@@ -2,25 +2,25 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import agent from '../agent'
-import PlayerCard from './Cards/PlayerCard'
+import EventCard from './Cards/EventCard'
 import {
-    PLAYER_SEARCH,
-    PLAYER_UNLOAD
+    EVENT_SEARCH,
+    EVENT_UNLOAD
 } from '../constants/actionTypes'
 
 const mapStateToProps = state => ({
-    ...state.player,
-    players: state.player.players || []
+    ...state.event,
+    events: state.event.events || []
 })
 
 const mapDispatchToProps = dispatch => ({
     onSearch: (query) =>
-        dispatch({ type: PLAYER_SEARCH, payload: agent.Player.search({ query: query }) }),
+        dispatch({ type: EVENT_SEARCH, payload: agent.Event.search({ query: query }) }),
     onUnload: () =>
-        dispatch({ type: PLAYER_UNLOAD })
+        dispatch({ type: EVENT_UNLOAD })
 })
 
-class FindPlayers extends React.Component {
+class FindEvent extends React.Component {
     constructor(){
         super()
 
@@ -49,7 +49,6 @@ class FindPlayers extends React.Component {
     }
 
     render(){
-        console.log(this.props.players)
         return(
             <div>
                 <div className="searchContainer">
@@ -64,9 +63,9 @@ class FindPlayers extends React.Component {
                 </div>
                 <div className="searchResults box">
                     {
-                        this.props.players.map((player, key) => {
+                        this.props.events.map((event, key) => {
                             return(
-                                <PlayerCard key={key} data={player} />
+                                <EventCard data={event} key={key} />
                             )
                         })
                     }
@@ -76,4 +75,4 @@ class FindPlayers extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FindPlayers)
+export default connect(mapStateToProps, mapDispatchToProps)(FindEvent)

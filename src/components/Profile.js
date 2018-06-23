@@ -38,11 +38,11 @@ class VolunteerProfile extends React.Component {
     if(this.props.user){
       return (
         <div>
-          <div className="col span-3-of-4 hero box">
+          <div className="hero box">
             <div className="row">
               <div className="col span-1-of-3">
                 <div className="imageContainer">
-                  <img src="img/user.png" alt="Profile icon" className="profileImage"/>
+                  <i className="fa fa-user"></i>
                 </div>
               </div>
               <div className="col span-2-of-3">
@@ -63,11 +63,6 @@ class VolunteerProfile extends React.Component {
                     </ul>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="tabsContainer row">
-              <div className="col span-1-of-2 o1">
-                Events
               </div>
             </div>
           </div>

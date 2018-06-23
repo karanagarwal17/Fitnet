@@ -25,22 +25,22 @@ class Dashboard extends React.Component {
         </div>
         <div className="tabs">
           <ul>
-            <Link to='/create/match'>
-              <li className={(this.props.location.pathname === '/create/match' ? 'active' : '')}>
+            <Link to='/create/event'>
+              <li className={(this.props.location.pathname === '/create/event' ? 'active' : '')}>
                 <i className="fa fa-calendar"></i>&nbsp;&nbsp;
-                Create Match
+                Create Event
               </li>
             </Link>
-            <Link to='/find/match'>
-              <li className={(this.props.location.pathname === '/find/match' ? 'active' : '')}>
+            <Link to='/find/event'>
+              <li className={(this.props.location.pathname === '/find/event' ? 'active' : '')}>
                 <i className="fa fa-calendar-alt"></i>&nbsp;&nbsp;
-                Find Match
+                Find Event
               </li>
             </Link>
             <Link to='/find/players'>
               <li className={(this.props.location.pathname === '/find/players' ? 'active' : '')}>
                 <i className="fa fa-users"></i>&nbsp;&nbsp;
-                Find Players
+                Find Co-Players
               </li>
             </Link>
             <Link to='/find/venue'>

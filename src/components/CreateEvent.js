@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import agent from '../agent'
 import {
-    CREATE_MATCH
+    CREATE_EVENT
 } from '../constants/actionTypes'
 
 const mapStateToProps = state => ({
@@ -12,19 +12,19 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     onSave: (details) =>
-        dispatch({ type: CREATE_MATCH, payload: agent.Match.post(details) })
+        dispatch({ type: CREATE_EVENT, payload: agent.Event.post(details) })
 })
 
-class CreateMatch extends React.Component {
+class CreateEvent extends React.Component {
     constructor(){
         super()
 
         this.state = {
             sport: '',
             venue: '',
-            numberOfPeople: '',
+            numberOfPlayers: '',
             privacy: '', 
-            players: ''
+            type: ''
         }
 
         this.updateState = field => ev => {
@@ -45,7 +45,7 @@ class CreateMatch extends React.Component {
         return(
             <div className="row box">
                 <div className="form-title">
-                    <h2>Create a match!</h2>
+                    <h2>Create an Event!</h2>
                 </div>
                 <form className="register-form">
                 <div className="field">
@@ -63,7 +63,7 @@ class CreateMatch extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <input className="input" type="text" value={this.state.numberOfPeople} onChange={this.updateState('numberOfPeople')}/>
+                  <input className="input" type="text" value={this.state.numberOfPlayers} onChange={this.updateState('numberOfPlayers')}/>
                   <span className="underline"></span>
                   <div className="fieldname">
                     Number of players
@@ -77,13 +77,12 @@ class CreateMatch extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <input className="input" type="text" value={this.state.players} onChange={this.updateState('players')}/>
+                  <input className="input" type="text" value={this.state.type} onChange={this.updateState('type')}/>
                   <span className="underline"></span>
                   <div className="fieldname">
-                    Players
+                    Type
                   </div>
                 </div>
-
                 <div className="submit-button">
                   <a className="btn" href="#" onClick={this.submitForm}>Save</a>
                 </div>
@@ -93,4 +92,4 @@ class CreateMatch extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateMatch)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateEvent)

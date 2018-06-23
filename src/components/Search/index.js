@@ -1,23 +1,4 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import agent from '../../agent'
-import { Link } from 'react-router'
 
-import Header from '../Header'
-import Dashboard from '../Dashboard'
-import NgoCard from '../Profile/NgoCard'
-import EventCard from '../Profile/EventCard'
-import VolunteerCard from '../Profile/VolunteerCard'
-import {
-  SEARCH,
-  SEARCH_UNLOAD
-} from '../../constants/actionTypes'
-
-const mapStateToProps = state => ({
-  ...state.search,
-  currentUser: state.common.currentUser,
-  searchResults: state.search.searchResults || []
-})
 
 const mapDispatchToProps = dispatch => ({
   onSearch: (type, query) =>
