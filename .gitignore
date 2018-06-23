@@ -7,3 +7,4 @@ npm-debug.log
 mongod.conf
 src/.env.js
 .vscode/*
+.DS_Store
