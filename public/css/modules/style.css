@@ -36,7 +36,7 @@ html, body {
 /* ------------------------------------------------------- */
 
 .box {
-  box-shadow: 0 3px 3px #dddddd;
+  box-shadow: 0 3px 4px #aaa;
 }
 
 /* ------ HEADINGS ------ */
@@ -132,6 +132,7 @@ input[type=checkbox], input[type=radio] {
   box-shadow: 0 3px 3px #dddddd;
   height: 60px;
   z-index: 9999;
+  background: white;
 }
 
 .header .fa {
@@ -837,72 +838,6 @@ input[type=checkbox], input[type=radio] {
   border-bottom: 2px solid coral;
 }
 
-.ngoCard {
-  padding: 20px;
-  border-bottom: 1px solid rgba(33, 83, 80, 0.19);
-}
-
-.ngoCard .ImageContainer {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.ngoCard .ImageContainer .hImage {
-  height: 100px;
-  width: 100px;
-}
-
-.ngoCard .DetailsContainer {
-  padding-top: 5px;
-}
-
-.ngoCard .DetailsContainer .detailTitle {
-  font-weight: 600;
-  text-transform: uppercase;
-  text-shadow: 60%;
-}
-
-.ngoCard .DetailsContainer ul {
-  list-style: none;
-  text-transform: none;
-  font-size: 80%;
-  font-weight: 550;
-  font-family: sans-serif;
-}
-
-.ngoCard .DetailsContainer ul .email {
-  color: rgb(60, 141, 167);
-}
-
-.ngoCard .ButtonContainer {
-  margin-left: 100px;
-}
-
-.ngoCard .ButtonContainer button{
-  background-color: coral; /* Green */
-  border: none;
-  color: white;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.ngoCard .ButtonContainer button:hover,button:active{
-  background-color: rgb(190, 167, 154);
-}
-
-.ngoCard .DetailsContainer ul .ngotype{
-  text-transform: uppercase;
-  text-shadow: 60%;
-  color: rgb(128,128,128);
-}
-
 .volunteerCard {
   padding: 20px;
   border-bottom: 1px solid rgba(33, 83, 80, 0.19);
@@ -911,13 +846,10 @@ input[type=checkbox], input[type=radio] {
 .volunteerCard .ImageContainer {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
-.volunteerCard .ImageContainer .hImage {
-  height: 100px;
-  width: 100px;
+.volunteerCard .ImageContainer i {
+  font-size: 200%;
 }
 
 .volunteerCard .DetailsContainer {
@@ -986,13 +918,10 @@ input[type=checkbox], input[type=radio] {
 .eventCard .ImageContainer{
   width: 100px;
   height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
-.eventCard .ImageContainer .hImage{
-  height: 100px;
-  width: 100px;
+.eventCard .ImageContainer i{
+  font-size: 200%;
 }
 
 .eventCard  .DetailsContainer{
@@ -1052,13 +981,10 @@ input[type=checkbox], input[type=radio] {
 .donationCard .ImageContainer {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
-.donationCard .ImageContainer .hImage {
-  height: 100px;
-  width: 100px;
+.donationCard .ImageContainer i {
+  font-size: 200%;
 }
 
 .donationCard .DetailsContainer {

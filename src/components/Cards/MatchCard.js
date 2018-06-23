@@ -22,7 +22,7 @@ class MatchCard extends React.Component {
     return (
       <div className="row eventCard">
         <div className="col span-2-of-7 ImageContainer">
-          <img src="/img/event.jpg" alt="Profile icon" className="hImage"/>
+          <i className="fa fa-calendar-alt"></i>
         </div>
         <div className="col span-4-of-7 DetailsContainer">
           <ul>

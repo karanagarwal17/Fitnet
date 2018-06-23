@@ -7,7 +7,7 @@ class PlayerCard extends React.Component {
       <Link to={`profile/${this.props.data.username}`}>
         <div className="row volunteerCard">
           <div className="col span-2-of-7 ImageContainer">
-            <img src="/img/user.png" alt="Profile icon" className="hImage"/>
+            <i className="fa fa-user"></i>
           </div>
           <div className="col span-4-of-7 DetailsContainer">
             <ul>
