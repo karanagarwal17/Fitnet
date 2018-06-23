@@ -22,12 +22,15 @@ class FindVenue extends React.Component {
     }
     
     render(){
+        console.log(this.props.venues)
         if(this.props.venues){
             return(
                 <div>
                     {
                         this.props.venues.map((venue, key) => {
-                            <VenueCard key={key} data={venue} />
+                            return(
+                                <VenueCard key={key} data={venue} />
+                            )
                         })
                     }
                 </div>
